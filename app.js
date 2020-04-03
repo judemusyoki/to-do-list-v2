@@ -4,6 +4,11 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const _ = require('lodash');
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -191,6 +196,6 @@ app.post("/delete", function(req, res){
 //   res.render("about");
 // });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(port, function() {
+  console.log("Server started on port " + port);
 });
